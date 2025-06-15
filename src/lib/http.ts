@@ -16,8 +16,9 @@ class HttpClient {
   private instance: AxiosInstance;
 
   constructor(baseURL: string = process.env.NEXT_PUBLIC_API_URL || "") {
+    const _baseURL = typeof window !== "undefined" ? "" : baseURL;
     this.instance = axios.create({
-      baseURL,
+      baseURL: _baseURL,
       timeout: 30000,
       headers: {
         "Content-Type": "application/json"
