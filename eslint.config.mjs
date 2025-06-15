@@ -11,6 +11,32 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    rules: {
+      "no-restricted-imports": [
+        "warn",
+        {
+          patterns: [
+            {
+              group: ["../*"],
+              message: "Consider using absolute imports instead of relative parent imports",
+            },
+          ],
+        },
+      ],
+    },
+    settings: {
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".tsx"],
+      },
+      "import/resolver": {
+        typescript: {
+          alwaysTryTypes: true,
+        },
+      },
+    },
+  }
 ];
 
 export default eslintConfig;

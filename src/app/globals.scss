@@ -1,0 +1,77 @@
+.font-exo2 {
+  font-family: var(--font-exo2);
+}
+.font-montserrat {
+  font-family: var(--font-montserrat);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: theme("colors.background.DEFAULT");
+    --foreground: theme("colors.foreground.DEFAULT");
+    --primary: theme("colors.primary.DEFAULT");
+    --primary-foreground: theme("colors.primary.DEFAULT");
+    --secondary: theme("colors.secondary.DEFAULT");
+    --secondary-foreground: theme("colors.secondary.DEFAULT");
+    --destructive: theme("colors.destructive.DEFAULT");
+    --destructive-foreground: theme("colors.destructive.DEFAULT");
+    --border: theme("colors.border");
+    --black: theme("colors.black");
+    --input: theme("colors.input");
+    --ring: theme("colors.ring");
+    --outlink: theme("colors.outlink");
+    --radius: theme("borderRadius.lg");
+    --white: theme("colors.white");
+    --letter-spacing-normal: theme("letterSpacing.normal");
+    --letter-spacing-tight: theme("letterSpacing.tight");
+    --letter-spacing-tighter: theme("letterSpacing.tighter");
+    --letter-spacing-wide: theme("letterSpacing.wide");
+    --letter-spacing-wider: theme("letterSpacing.wider");
+    --letter-spacing-widest: theme("letterSpacing.widest");
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: var(--font-montserrat), var(--font-exo2), Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.666;
+  background: var(--background);
+  color: var(--foreground);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.blind {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+@media (max-width: theme("screens.md")) {
+  html {
+    font-size: 1.3020833333333335vw;
+  }
+}
